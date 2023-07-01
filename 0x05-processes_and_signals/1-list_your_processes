@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Display a list of currently running processes
+# Uses the `ps` command to retrieve process information
+# a: Show processes for all users.
+# u: Display detailed output format.
+# x: Include processes without a controlling terminal (TTY).
+# t: Display the process hierarchy.
+
+ps auxt
