@@ -2,14 +2,16 @@
 # displays the time for 12 hours and 59 minutes:
 # display hours from 0 to 12
 # display minutes from 1 to 59
-hour=0
+hours=0
 min=1
-while [ $hour -lt 12 ] || { [ $hour -eq 12 ] && [ $min -le 59 ]; }; do
-   echo "Hour: $hour"
-   echo $min
-   ((min++))
-   if [ $min -eq 60 ]; then
-	((hour++))
-	min=0
-   fi
+while [[ "$hours" -le 12 ]]
+do
+   echo "Hour: $hours"
+   while [[ "$min" -lt 60 ]]
+   do
+       echo "$min"
+       (( min++ ))
+   done
+   (( hours++ ))
+   min=1
 done
