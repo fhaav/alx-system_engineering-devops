@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # Display a list of currently running processes
-ps auxt
+ps auxf |
+  head -n 50
