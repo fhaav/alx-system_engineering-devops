@@ -1,0 +1,1 @@
+This directory contains tasks related to regular expressions (regex) as part of the ALX school curriculum. Regular expressions are powerful tools for pattern matching and text manipulation. They provide a concise and flexible way to search, match, and manipulate strings based on specific patterns.
