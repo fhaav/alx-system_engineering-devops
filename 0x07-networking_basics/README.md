@@ -1,0 +1,1 @@
+This directory contains answers to the tasks associated with the project titled "0x07. Networking basics #0." It forms an integral part of the ALX School curriculum and encompasses the essential principles and concepts of networking.
