@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# displays all listening sockets on a system.
+
+netstat -l
