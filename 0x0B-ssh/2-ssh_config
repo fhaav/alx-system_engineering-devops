@@ -1,0 +1,9 @@
+# SSH configuration file (usually located at ~/.ssh/config).
+
+Host *
+    HostName 34.203.201.237
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
+    HashKnownHosts yes
+    GSSAPIAuthentication yes
