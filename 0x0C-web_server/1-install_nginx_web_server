@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Update package list and install nginx
+
+sudo apt -y update
+sudo apt -y upgrade
+sudo apt -y install nginx
+
+# Start Nginx service
+sudo service nginx start
+
+# Set ownership and permissions for the web root directory
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+# Add "Hello World!" content to index.html
+echo 'Hello World!' | sudo tee /var/www/html/index.nginx-debian.html
