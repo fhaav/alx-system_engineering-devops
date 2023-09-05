@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Configure HAProxy to distribute traffic to web-01 and web-02 using round-robin algorithm.
+
+if ! [ -x "$(command -v haproxy)" ]; then
+    apt-get update -y
+    apt-get install haproxy -y
+fi
+
+cat <<EOF > /etc/haproxy/haproxy.cfg
+global
+    daemon
+    maxconn 256
+
+defaults
+    mode http
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+frontend http-in
+    bind *:80
+    default_backend servers
+
+backend servers
+    balance roundrobin
+    server web-01 [STUDENT_ID]-web-01:80 check
+    server web-02 [STUDENT_ID]-web-02:80 check
+EOF
+
+sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+service haproxy restart
