@@ -3,15 +3,10 @@
 
 if ! [ -x "$(command -v haproxy)" ]; then
     sudo apt-get update -y
-    sudo apt-get install haproxy -y
+     sudo apt-get install haproxy -y
 fi
 
-sudo service haproxy start
-sudo chown -R "$USER":"$USER" /etc/haproxy
-sudo chown -R "$USER":"$USER" /etc/default
-sudo chmod -R 755 /etc/haproxy
-sudo chmod -R 755 /etc/default
-sudo cat <<EOF > /etc/haproxy/haproxy.cfg
+cat <<EOF > /etc/haproxy/haproxy.cfg
 global
     daemon
     maxconn 256
@@ -32,5 +27,5 @@ backend servers
     server 272659-web-02 52.3.242.30:80 check
 EOF
 
-sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
 sudo service haproxy restart
